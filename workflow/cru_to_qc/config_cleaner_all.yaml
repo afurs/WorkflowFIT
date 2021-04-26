@@ -1,0 +1,9 @@
+Rules:
+  - object_path: qc/FT0/.*   # Path in the CCDB to a certain object
+    delay: 0                 # Delay in minutes during which a new object is not touched.
+    policy: none_kept        # name of the policy to apply, must correspond to a python script.
+#  - object_path: QcTask/example
+#    delay: 1
+#    policy: none_kept
+Ccdb:
+   Url: http://j91.localdomain:8083

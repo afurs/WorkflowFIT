@@ -24,7 +24,7 @@ All this packges could be installed from repository by using FLPSuite(as fronten
     3. Configure links you need(example for cruID=#0 and links 9,11): ```o2-roc-config --id=#0 --clock=TTC --pon-upstream --dyn-offset --onu-address=1 --gbtmux=TTC --datapathmode=PACKET --gbtmode=GBT --links=9,11 --force```
 
     4. Check again by using o2-roc-status
-3. Check FEE configuration on its side(ControlServer, DCS, etc). It should be done after each o2-roc-config command executed!
+3. Check FEE configuration on its side(ControlServer, DCS, etc). It should be done after each o2-roc-config command executed! "Resetorbit sync button" on DCS
 4. Check LTU configuration:
     1. Use "ltu" login on FLP machine(for test setup)
     2. Start "qtltu"

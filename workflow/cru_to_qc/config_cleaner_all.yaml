@@ -6,4 +6,4 @@ Rules:
 #    delay: 1
 #    policy: none_kept
 Ccdb:
-   Url: http://j91.localdomain:8083
+   Url: http://localhost:8083

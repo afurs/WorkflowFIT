@@ -28,14 +28,14 @@
           "className": "o2::quality_control_modules::ft0::BasicDigitQcTask",
           "moduleName": "QcFT0",
           "detectorName": "FT0",
-          "cycleDurationSeconds": "60",
+          "cycleDurationSeconds": "20",
           "maxNumberCycles": "-1",
           "dataSource": {
               "type": "direct",
               "query": "digits:FT0/DIGITSBC/0;channels:FT0/DIGITSCH/0"
             },
           "taskParameters": {
-            "ChannelIDs": "73,76,79,83,122,125,129,132"
+            "ChannelIDs": "204,205"
           },
           "location": "local",
           "localMachines": [

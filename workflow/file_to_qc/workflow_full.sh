@@ -22,7 +22,8 @@ STF_BUILDER+=" --channel-config \"name=dpl-chan,type=push,method=bind,address=ip
 
 QC_LOCAL="o2-dpl-raw-proxy -b --session=default --severity=debug --dataspec \"A1:FT0/RAWDATA\""
 QC_LOCAL+=" --channel-config \"name=readout-proxy,type=pull,method=connect,address=ipc://@stf-builder-dpl-pipe-0,transport=shmem,rateLogging=1\""
-QC_LOCAL+=" | o2-ft0-flp-dpl-workflow -b --session=default --severity=debug --disable-root-output"
+QC_LOCAL+=" | o2-ft0-flp-dpl-workflow -b --session=default --severity=debug --disable-root-output --ignore-dist-stf"
+QC_LOCAL+=" --ft0-datareader-dpl '--cable-config-json cables.json'"
 QC_LOCAL+=" | o2-dpl-output-proxy -b --session default --severity=debug --dataspec \"digits:FT0/DIGITSBC/0;channels:FT0/DIGITSCH/0\""
 QC_LOCAL+=" --dpl-output-proxy '--channel-config \"name=downstream,type=push,method=bind,address=ipc://@dpl-pipe-0,rateLogging=1,transport=shmem\"'"
 QC_LOCAL+=" |  o2-dpl-run -b --session default --run --resources-monitoring 1"

@@ -25,3 +25,9 @@ source qc_full2file.sh
   2. Prepare list of ChannelIDs in "ChannelIDs" field for 1D histograms to be initialized with a given IDs. Symbol "," should be used as delimeter. Remove "ChannelIDs" field from config file if you need to initialize 1D hists for all channels.
 2. Readout config file readout_stf_file.cfg, segment "consumer-rec":
   1. For dropping emptyHBFs: dropEmptyHBFrames=1
+
+## Cleaning ALL QC objects(MO/QO)
+````
+aliswmod enter QualityControl
+repoCleaner.py --config config_cleaner_all.yaml
+````

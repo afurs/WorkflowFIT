@@ -34,7 +34,7 @@ All this packges could be installed from repository by using FLPSuite(as fronten
     1. Use "ltu" login on FLP machine(for test setup)
     2. Start "qtltu"
     3. Set to "Continious mode"
-    4. (Optionally) Use PrePulse
+    4. (Optionally) Use PrePulse(put 0x8b37 in rate field, for period in 10 orbits)
 5. Start workflow you need(description in sub-directories):
     1. Choose dataflow type(subdirectory in this repository).
     2. Start script.

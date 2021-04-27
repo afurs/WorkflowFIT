@@ -23,9 +23,9 @@
         }
       },
       "tasks": {
-        "BasicDigitQcTask": {
+        "DigitQcTask": {
           "active": "true",
-          "className": "o2::quality_control_modules::ft0::BasicDigitQcTask",
+          "className": "o2::quality_control_modules::ft0::DigitQcTask",
           "moduleName": "QcFT0",
           "detectorName": "FT0",
           "cycleDurationSeconds": "60",
@@ -35,7 +35,7 @@
               "query": "digits:FT0/DIGITSBC/0;channels:FT0/DIGITSCH/0"
             },
           "taskParameters": {
-            "ChannelIDs": "73,76,79,83,122,125,129,132"
+            "ChannelIDs": "204,205,206"
           },
           "location": "local",
           "localMachines": [

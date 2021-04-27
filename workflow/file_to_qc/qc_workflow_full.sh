@@ -2,7 +2,7 @@
 
 set -u
 #alienv load O2Suite/latest-dev_ft0_tests-o2 -w /home/flp/alice/sw
-READOUT="readout.exe file:readout_stf_file.cfg"
+READOUT="o2-readout-exe file:readout_stf_file.cfg"
 
 STF_BUILDER="StfBuilder"
 STF_BUILDER+=" --id stf_builder-0"
@@ -20,11 +20,12 @@ STF_BUILDER+=" --channel-config \"name=dpl-chan,type=push,method=bind,address=ip
 
 QC_LOCAL="o2-dpl-raw-proxy -b --session=default --severity=debug --dataspec \"A1:FT0/RAWDATA\""
 QC_LOCAL+=" --channel-config \"name=readout-proxy,type=pull,method=connect,address=ipc://@stf-builder-dpl-pipe-0,transport=shmem,rateLogging=1\""
-QC_LOCAL+=" | o2-ft0-flp-dpl-workflow -b --session=default --severity=debug --disable-root-output"
+QC_LOCAL+=" | o2-ft0-flp-dpl-workflow -b --session=default --severity=debug --disable-root-output --ignore-dist-stf"
 QC_LOCAL+=" | o2-qc -b --session default --config json://qc_digits.json"
-QC_LOCAL+=" |  o2-dpl-run -b --session default --run --resources-monitoring 1"
+#QC_LOCAL+=" | o2-qc -b --config json://qc_digits.json"
+#QC_LOCAL+=" |  o2-dpl-run -b --session default --run --resources-monitoring 1"
 
 xterm +j -fa 'Monospace' -fs 14 -geometry 90x57+1120+0 -hold -e "$STF_BUILDER" & 
 xterm  -sl 10000 -fa 'Monospace' -fs 14 -geometry 90x57+1120+0 -hold -e "$QC_LOCAL" &
-sleep 20s
+sleep 10s
 xterm  -sl 10000 -fa 'Monospace' -fs 14 -geometry 90x57+1120+0 -hold -e "$READOUT"

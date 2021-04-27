@@ -12,7 +12,7 @@ All this packges could be installed from repository by using FLPSuite(as fronten
 * FLPSuite: https://alice-o2-project.web.cern.ch/flp-suite
 
 ## Preparation
-1. Load enviroment, there are too cases (second one is better for tests):
+1. Load enviroment, there are too cases (second one is preferable for tests):
     1. For FLPSuite:  
     ```aliswmod enter Readout DataDistribution O2```
   
@@ -22,10 +22,10 @@ All this packges could be installed from repository by using FLPSuite(as fronten
 2. Check CRU configurations:
     1. Card lists:  
     ```o2-roc-lists```
-    3. Check status for each logic CRU device:  
+    3. Check status for each logic CRU device(example for device #0):  
     ```o2-roc-status --id=#0```
 
-    3. Configure links you need(example for cruID=#0 and links 9,11):  
+    3. Configure links you need(example for device #0 and links 9,11):  
     ```o2-roc-config --id=#0 --clock=TTC --pon-upstream --dyn-offset --onu-address=1 --gbtmux=TTC --datapathmode=PACKET --gbtmode=GBT --links=9,11 --force```
 
     4. Check again by using o2-roc-status

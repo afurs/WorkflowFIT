@@ -44,4 +44,6 @@ All this packges could be installed from repository by using FLPSuite(as fronten
 6. Investigate data you collected(into file or QC objects)
 
 ## Configuration
-Readout: https://github.com/AliceO2Group/Readout/blob/master/doc/configurationParameters.md
+* Readout: https://github.com/AliceO2Group/Readout/blob/master/doc/configurationParameters.md
+* cables.json: "real" fields related to physical link connection, "lut" - target linkID/endPointID, which defined in LookupTable
+Warning! Undefined links will be suppressed!

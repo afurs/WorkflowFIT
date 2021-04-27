@@ -13,15 +13,20 @@ All this packges could be installed from repository by using FLPSuite(as fronten
 
 ## Preparation
 1. Load enviroment, there are too cases (second one is better for tests):
-    1. For FLPSuite: ```aliswmod enter Readout DataDistribution O2```
+    1. For FLPSuite:  
+    ```aliswmod enter Readout DataDistribution O2```
   
-    2. For O2Suite(some options depends on installation conditions): ``` alienv enter O2Suite/latest-dev_fit-o2 -w /home/flp/alice/sw ```
+    2. For O2Suite(some options depends on installation conditions):  
+    ``` alienv enter O2Suite/latest-dev_fit-o2 -w /home/flp/alice/sw ```
   
 2. Check CRU configurations:
-    1. Card lists: ```o2-roc-lists```
-    2. Check status for each logic CRU device: ```o2-roc-status --id=#0```
+    1. Card lists:  
+    ```o2-roc-lists```
+    3. Check status for each logic CRU device:  
+    ```o2-roc-status --id=#0```
 
-    3. Configure links you need(example for cruID=#0 and links 9,11): ```o2-roc-config --id=#0 --clock=TTC --pon-upstream --dyn-offset --onu-address=1 --gbtmux=TTC --datapathmode=PACKET --gbtmode=GBT --links=9,11 --force```
+    3. Configure links you need(example for cruID=#0 and links 9,11):  
+    ```o2-roc-config --id=#0 --clock=TTC --pon-upstream --dyn-offset --onu-address=1 --gbtmux=TTC --datapathmode=PACKET --gbtmode=GBT --links=9,11 --force```
 
     4. Check again by using o2-roc-status
 3. Check FEE configuration on its side(ControlServer, DCS, etc). It should be done after each o2-roc-config command executed! "Resetorbit sync button" on DCS

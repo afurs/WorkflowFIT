@@ -2,10 +2,10 @@
 
 ## Packages
 * ReadoutCard: https://github.com/AliceO2Group/ReadoutCard
-* Readout https://github.com/AliceO2Group/Readout
-* DataDistribution https://github.com/AliceO2Group/DataDistribution
-* AliceO2 https://github.com/AliceO2Group/AliceO2
-* QualityControl https://github.com/AliceO2Group/QualityControl
+* Readout: https://github.com/AliceO2Group/Readout
+* DataDistribution: https://github.com/AliceO2Group/DataDistribution
+* AliceO2: https://github.com/AliceO2Group/AliceO2
+* QualityControl: https://github.com/AliceO2Group/QualityControl
 
 All this packges could be installed from repository by using FLPSuite(as frontend) and O2Suite (as backend and if you need to develop your code): 
 * O2Suite: https://github.com/AliceO2Group/QualityControl/blob/master/doc/QuickStart.md#setup
@@ -42,3 +42,6 @@ All this packges could be installed from repository by using FLPSuite(as fronten
     4. Stop LTU
     5. Stop workflow by pressing ctrl+c in opened xterm windows, and then close them. It's important if you need to write digits into ROOT file during workflow.
 6. Investigate data you collected(into file or QC objects)
+
+## Configuration
+Readout: https://github.com/AliceO2Group/Readout/blob/master/doc/configurationParameters.md

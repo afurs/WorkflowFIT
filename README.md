@@ -25,7 +25,7 @@ All this packges could be installed from repository by using FLPSuite(as fronten
     3. Check status for each logic CRU device(example for device #0):  
     ```o2-roc-status --id=#0```
 
-    3. Configure links you need(example for device #0 and links 9,11):  
+    3. (Optionally)Configure links you need(example for device #0 and links 9,11):  
     ```o2-roc-config --id=#0 --clock=TTC --pon-upstream --dyn-offset --onu-address=1 --gbtmux=TTC --datapathmode=PACKET --gbtmode=GBT --links=9,11 --force```
 
     4. Check again by using o2-roc-status

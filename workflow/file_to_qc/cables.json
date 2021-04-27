@@ -1,0 +1,14 @@
+[
+  {
+    "realLinkID": 11,
+    "realEndpointID": 1,
+    "lutLinkID": 11,
+    "lutEndpointID": 0
+  },
+  {
+    "realLinkID": 9,
+    "realEndpointID": 1,
+    "lutLinkID": 0,
+    "lutEndpointID": 0
+  }
+]

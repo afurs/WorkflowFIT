@@ -37,10 +37,11 @@ All this packges could be installed from repository by using FLPSuite(as fronten
     4. (Optionally) Use PrePulse(put 0x8b37 in rate field, for period in 10 orbits)
 5. Start workflow you need(description in sub-directories):
     1. Choose dataflow type(subdirectory in this repository).
-    2. Start script.
-    3. Start LTU
-    4. Stop LTU
-    5. Stop workflow by pressing ctrl+c in opened xterm windows, and then close them. It's important if you need to write digits into ROOT file during workflow.
+    2. Check cables.json configuration file. "real" parameters will be converted into "lut" during raw2digit conversion! Undefined links will be suppressed!
+    3. Start script.
+    4. Start LTU
+    5. Stop LTU
+    6. Stop workflow by pressing ctrl+c in opened xterm windows, and then close them. It's important if you need to write digits into ROOT file during workflow.
 6. Investigate data you collected(into file or QC objects)
 
 ## Configuration

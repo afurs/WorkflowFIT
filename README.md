@@ -46,4 +46,5 @@ All this packges could be installed from repository by using FLPSuite(as fronten
 ## Configuration
 * Readout: https://github.com/AliceO2Group/Readout/blob/master/doc/configurationParameters.md
 * cables.json: "real" fields related to physical link connection, "lut" - target linkID/endPointID, which defined in LookupTable
-Warning! Undefined links will be suppressed!
+Warning! Undefined links will be suppressed! "real" will be converted into "lut"
+For example: {"realLinkID": 10, "realEndPointID":1, "realLinkID": 11, "realEndPointID":0} , all data from {linkID=10,endPointID=1} will be recongnized as data from {linkID=11,endPointID=0}

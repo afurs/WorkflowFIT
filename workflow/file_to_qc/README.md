@@ -6,7 +6,7 @@
 ````
 source qc_workflow_full.sh
 ````
-  1. Full workflow chain(readout->...->StfSender:
+  2. Full workflow chain(readout->...->StfSender:
 ````
 source workflow_full.sh
 ````

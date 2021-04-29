@@ -41,7 +41,7 @@ All this packges could be installed from repository by using FLPSuite(as fronten
     3. Start script.
     4. Start LTU
     5. Stop LTU
-    6. Stop workflow by pressing ctrl+c in opened xterm windows, and then close them. It's important if you need to write digits into ROOT file during workflow.
+    7. Stop workflow by pressing ctrl+c in opened xterm windows(WARNING! For safe root file(digits) saving, use Ctrl-C on xterm window containing O2 workflows!), and then close them. It's important if you need to write digits into ROOT file during workflow.
 6. Investigate data you collected(into file or QC objects)
 
 ## Configuration

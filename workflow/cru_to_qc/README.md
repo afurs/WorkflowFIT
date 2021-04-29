@@ -6,7 +6,7 @@
 ````
 source qc_full.sh
 ````
-  2. Store only digits:
+  2. Store only digits(WARNING! For safe root file(digits) saving, use Ctrl-C on xterm window containing O2 workflows!):
 ````
 source qc_full2file_digits.sh
 ````

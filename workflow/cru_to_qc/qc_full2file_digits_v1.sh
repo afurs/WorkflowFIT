@@ -32,8 +32,13 @@ QC_LOCAL="o2-dpl-raw-proxy -b --session=default --severity=debug --dataspec \"A1
 QC_LOCAL+=" --channel-config \"name=readout-proxy,type=pull,method=connect,address=ipc://@stf-builder-dpl-pipe-0,transport=shmem,rateLogging=1\""
 QC_LOCAL+=" | o2-ft0-flp-dpl-workflow -b --session=default --severity=debug  --ignore-dist-stf"
 QC_LOCAL+=" --ft0-datareader-dpl '--cable-config-json cables.json'"
-
-
+if (($NEVENTS_TO_WRITE>0)); then
+  echo "Number of events to save: ${NEVENTS_TO_WRITE}"
+  #QC_LOCAL+=" --autosave ${NEVENTS_TO_WRITE} --output-dir output"
+  QC_LOCAL+=" --autosave 1000"
+  QC_LOCAL+=" --nevents ${NEVENTS_TO_WRITE}"
+fi
+        echo "Final o2 command: ${QC_LOCAL}"
 QC_LOCAL+=" | o2-qc -b --session default --config json://qc_digits.json"
 
 #QC_REMOTE="o2-qc -b --session default --config json:///home/flp/work/online_dataflow/v1/qc_digits.json --remote"

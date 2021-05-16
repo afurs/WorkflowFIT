@@ -2,8 +2,11 @@
 
 set -u
 #alienv load O2Suite/latest-dev_ft0_tests-o2 -w /home/flp/alice/sw
+NEVENTS_TO_WRITE=${1:-"0"}
 SHMSIZE=12000000000
+
 READOUT="o2-readout-exe file:readout_stf_file_looped.cfg"
+
 
 STF_BUILDER="StfBuilder"
 STF_BUILDER+=" --id stf_builder-0"
@@ -13,37 +16,39 @@ STF_BUILDER+=" --dpl-channel-name=dpl-chan"
 STF_BUILDER+=" --detector FT0"
 STF_BUILDER+=" --detector-rdh 6"
 STF_BUILDER+=" --rdh-filter-empty-trigger"
-#STF_BUILDER+=" --shm-segment-size ${SHMSIZE}"
-#STF_BUILDER+=" --rate 50000"
+#STF_BUILDER+=" --rate 5000"
 #STF_BUILDER+=" --stand-alone"
 #STF_BUILDER+=" --io-threads 10"
-
+STF_BUILDER+=" --shm-segment-size ${SHMSIZE}"
 STF_BUILDER+=" --channel-config \"name=readout,type=pull,method=connect,address=ipc://@readout-fmq-stfb,transport=shmem,rateLogging=1\""
 STF_BUILDER+=" --channel-config \"name=dpl-chan,type=push,method=bind,address=ipc://@stf-builder-dpl-pipe-0,transport=shmem,rateLogging=1\""
 
 QC_LOCAL="o2-dpl-raw-proxy -b --session=default --severity=debug --dataspec \"A1:FT0/RAWDATA\""
 QC_LOCAL+=" --channel-config \"name=readout-proxy,type=pull,method=connect,address=ipc://@stf-builder-dpl-pipe-0,transport=shmem,rateLogging=1\""
 QC_LOCAL+=" --shm-segment-size ${SHMSIZE}"
-QC_LOCAL+=" | o2-ft0-flp-dpl-workflow -b --session=default --severity=debug --disable-root-output --ignore-dist-stf"
+QC_LOCAL+=" | o2-ft0-flp-dpl-workflow -b --session=default --severity=debug --ignore-dist-stf"
 QC_LOCAL+=" --ft0-datareader-dpl '--cable-config-json cables.json'"
 QC_LOCAL+=" --shm-segment-size ${SHMSIZE}"
-QC_LOCAL+=" | o2-dpl-null-sink -b --session=default --severity=debug --inputs \"digits:FT0/DIGITSBC/0;channels:FT0/DIGITSCH/0\""
+if (($NEVENTS_TO_WRITE>0)); then
+  echo "Number of events to save: ${NEVENTS_TO_WRITE}"
+  #QC_LOCAL+=" --autosave ${NEVENTS_TO_WRITE} --output-dir output"
+  QC_LOCAL+=" --autosave 1000 --output-dir output"
+  QC_LOCAL+=" --nevents ${NEVENTS_TO_WRITE}"
+fi
+echo "Final o2 command: ${QC_LOCAL}"
 #QC_LOCAL+=" | o2-dpl-output-proxy -b --session default --severity=debug --dataspec \"digits:FT0/DIGITSBC/0;channels:FT0/DIGITSCH/0\""
 #QC_LOCAL+=" --dpl-output-proxy '--channel-config \"name=downstream,type=push,method=bind,address=ipc://@dpl-pipe-0,rateLogging=1,transport=shmem\"'"
-#QC_LOCAL+=" --shm-segment-size ${SHMSIZE}"
+#QC_LOCAL+=" |  o2-dpl-run -b --session default --run --resources-monitoring 1"
 
-#QC_LOCAL+=" |  o2-dpl-run -b --session default --run"
-
-STF_SENDER="StfSender"
-STF_SENDER+=" --id stfs"
-STF_SENDER+="  --detector FT0"
-STF_SENDER+=" --detector-rdh 6"
-STF_SENDER+=" --transport shmem"
-STF_SENDER+=" --session default"
-STF_SENDER+=" --stand-alone"
-STF_SENDER+=" --input-channel-name=input-chan"
-STF_SENDER+=" --channel-config name=input-chan,type=pull,method=connect,address=ipc://@dpl-pipe-0,transport=shmem,rateLogging=1"
-STF_BUILDER+=" --shm-segment-size ${SHMSIZE}"
+#STF_SENDER="StfSender"
+#STF_SENDER+=" --id stfs"
+#STF_SENDER+="  --detector FT0"
+#STF_SENDER+=" --detector-rdh 6"
+#STF_SENDER+=" --transport shmem"
+#STF_SENDER+=" --session default"
+#STF_SENDER+=" --stand-alone"
+#STF_SENDER+=" --input-channel-name=input-chan"
+#STF_SENDER+=" --channel-config name=input-chan,type=pull,method=connect,address=ipc://@dpl-pipe-0,transport=shmem,rateLogging=1"
 
 xterm +j -fa 'Monospace' -fs 14 -geometry 90x57+1120+0 -hold -e "$STF_BUILDER" & 
 xterm  -sl 10000 -fa 'Monospace' -fs 14 -geometry 90x57+1120+0 -hold -e "$QC_LOCAL" &

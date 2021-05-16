@@ -35,7 +35,7 @@
               "query": "digits:FT0/DIGITSBC/0;channels:FT0/DIGITSCH/0"
             },
           "taskParameters": {
-            "ChannelIDs": "204,205"
+            "ChannelIDs": "0,1"
           },
           "location": "local",
           "localMachines": [

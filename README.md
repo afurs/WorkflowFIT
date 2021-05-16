@@ -18,7 +18,7 @@ All this packges could be installed from repository by using FLPSuite(as fronten
     ```aliswmod enter Readout DataDistribution O2```
   
     2. For O2Suite(some options depends on installation conditions):  
-    ``` alienv enter O2Suite/latest-dev_fit-o2 -w /home/flp/alice/sw ```
+    ``` alienv enter O2Suite/latest-dev_fit-o2 -w /data/work/alice/sw ```
   
 2. Check CRU configurations:
     1. Card lists:  

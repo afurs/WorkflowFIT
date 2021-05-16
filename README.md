@@ -6,6 +6,7 @@
 * DataDistribution: https://github.com/AliceO2Group/DataDistribution
 * AliceO2: https://github.com/AliceO2Group/AliceO2
 * QualityControl: https://github.com/AliceO2Group/QualityControl
+* LTU: https://twiki.cern.ch/twiki/bin/viewauth/ALICE/GettingStartedLtu
 
 All this packges could be installed from repository by using FLPSuite(as frontend) and O2Suite (as backend and if you need to develop your code): 
 * O2Suite: https://github.com/AliceO2Group/QualityControl/blob/master/doc/QuickStart.md#setup

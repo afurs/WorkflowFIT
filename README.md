@@ -22,7 +22,7 @@ All this packges could be installed from repository by using FLPSuite(as fronten
   
 2. Check CRU configurations:
     1. Card lists:  
-    ```o2-roc-lists```
+    ```o2-roc-list-cards```
     3. Check status for each logic CRU device(example for device #0):  
     ```o2-roc-status --id=#0```
 

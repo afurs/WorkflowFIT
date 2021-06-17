@@ -13,12 +13,8 @@ All this packges could be installed from repository by using FLPSuite(as fronten
 * FLPSuite: https://alice-o2-project.web.cern.ch/flp-suite
 
 ## Preparation
-1. Load enviroment, there are too cases (second one is preferable for tests):
-    1. For FLPSuite:  
-    ```aliswmod enter Readout DataDistribution O2```
-  
-    2. For O2Suite(some options depends on installation conditions):  
-    ``` alienv enter O2Suite/latest-dev_fit-o2 -w /data/work/alice/sw ```
+1. Load enviroment:
+    ``` alienv enter O2Suite/latest-dev_fit-o2-dataflow -w /data/work/alice/sw ```
   
 2. Check CRU configurations:
     1. Card lists:  

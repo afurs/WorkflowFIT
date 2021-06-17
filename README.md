@@ -13,7 +13,7 @@ All this packges could be installed from repository by using FLPSuite(as fronten
 * FLPSuite: https://alice-o2-project.web.cern.ch/flp-suite
 
 ## Preparation
-1. Load enviroment:
+1. Load enviroment:  
     ``` alienv enter O2Suite/latest-dev_fit-o2-dataflow -w /data/work/alice/sw ```
   
 2. Check CRU configurations:

@@ -1,5 +1,5 @@
 # Guideline for FIT data workflow
-
+Main doc(FLP): https://alice-flp.docs.cern.ch
 ## Packages
 * ReadoutCard: https://github.com/AliceO2Group/ReadoutCard
 * Readout: https://github.com/AliceO2Group/Readout
